@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.05" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -7100,6 +7100,76 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <vertex x="4.618" y="-5.4" curve="-90"/>
 </polygon>
 </package>
+<package name="PAD.02X.02">
+<description>&lt;h3&gt;Electrically Conductive Pad 0.02" Square&lt;/h3&gt;
+Used as a test point connection for pogo pins or other debugging tools. 
+&lt;p&gt;Specifications:
+&lt;li&gt;Area: 0.02" x 0.02"&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;TEST_POINT&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<smd name="1" x="0" y="0" dx="0.508" dy="0.508" layer="1" cream="no"/>
+</package>
+<package name="PAD.03X.03">
+<description>&lt;h3&gt;Electrically Conductive Pad 0.03" Circle&lt;/h3&gt;
+Used as a test point connection for pogo pins or other debugging tools. 
+&lt;p&gt;Specifications:
+&lt;li&gt;Area: 0.03" x 0.03"&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;TEST_POINT&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<smd name="1" x="0" y="0" dx="0.762" dy="0.762" layer="1" roundness="100" cream="no"/>
+</package>
+<package name="PAD.03X.05">
+<description>&lt;h3&gt;Electrically Conductive Pad 0.05" Circle&lt;/h3&gt;
+Used as a test point connection for pogo pins or other debugging tools. 
+&lt;p&gt;Specifications:
+&lt;li&gt;Area: 0.05" x 0.05"&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;TEST_POINT&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<smd name="1" x="0" y="0" dx="1.27" dy="1.27" layer="1" roundness="100" cream="no"/>
+</package>
+<package name="PAD.03X.04">
+<description>&lt;h3&gt;Electrically Conductive Pad 0.04" Circle&lt;/h3&gt;
+Used as a test point connection for pogo pins or other debugging tools. 
+&lt;p&gt;Specifications:
+&lt;li&gt;Area: 0.04" x 0.04"&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;TEST_POINT&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<smd name="1" x="0" y="0" dx="1.016" dy="1.016" layer="1" roundness="100" cream="no"/>
+</package>
+<package name="TP_15TH">
+<description>&lt;h3&gt;Electrically Conductive Via 0.015" Drill&lt;/h3&gt;
+Used as a test point connection for pogo pins or other debugging tools. 
+&lt;p&gt;Specifications:
+&lt;li&gt;Area:0.015"&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;TEST_POINT&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<pad name="1" x="0" y="0" drill="0.381" diameter="0.6096" stop="no"/>
+<circle x="0" y="0" radius="0.381" width="0" layer="30"/>
+</package>
+<package name="1X01_NO_SILK">
+<description>&lt;h3&gt;Plated Through Hole - No Silk Outline&lt;/h3&gt;
+&lt;p&gt;Specifications:
+&lt;ul&gt;&lt;li&gt;Pin count:1&lt;/li&gt;
+&lt;li&gt;Pin pitch:0.1"&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;p&gt;Example device(s):
+&lt;ul&gt;&lt;li&gt;CONN_01&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<pad name="1" x="0" y="0" drill="1.016" diameter="1.8796" rot="R90"/>
+<text x="-1.27" y="1.143" size="0.6096" layer="25" font="vector" ratio="20">&gt;NAME</text>
+<text x="-1.27" y="-1.778" size="0.6096" layer="27" font="vector" ratio="20">&gt;VALUE</text>
+<rectangle x1="-0.254" y1="-0.254" x2="0.254" y2="0.254" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="USB-C-MINIMUM">
@@ -7119,6 +7189,13 @@ Exposes the minimal pins needed to implement a USB 2.x legacy device.</descripti
 <pin name="D-" x="12.7" y="2.54" visible="pin" length="short" rot="R180"/>
 <pin name="CC2" x="12.7" y="-2.54" visible="pin" length="short" rot="R180"/>
 <pin name="SHLD" x="12.7" y="-5.08" visible="pin" length="short" rot="R180"/>
+</symbol>
+<symbol name="TEST-POINT">
+<wire x1="2.54" y1="0" x2="0" y2="0" width="0.1524" layer="94"/>
+<wire x1="3.302" y1="0.762" x2="3.302" y2="-0.762" width="0.1524" layer="94" curve="180"/>
+<text x="-2.54" y="2.54" size="1.778" layer="95" font="vector">&gt;Name</text>
+<text x="-2.54" y="-2.54" size="1.778" layer="96" font="vector">&gt;Value</text>
+<pin name="1" x="0" y="0" visible="off" length="point" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -7181,6 +7258,68 @@ If designing 4-layer board, make sure to select the variant &lt;strong&gt;_4-LAY
 <technology name="">
 <attribute name="PROD_ID" value="CONN-14122"/>
 </technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TEST-POINT" prefix="TP">
+<description>&lt;h3&gt;SparkFun Test Points&lt;/h3&gt;
+&lt;p&gt;Bare copper test points for troubleshooting or In-Circuit-Testing. These are used by our Production team for verifying production board runs using pogo-pins on test beds.&lt;/p&gt;
+&lt;p&gt;&lt;b&gt;SparkFun Products:&lt;/b&gt;
+&lt;ul&gt;&lt;li&gt;&lt;a href=”https://www.sparkfun.com/products/13284”&gt;SparkFun LSM9DS1 Breakout&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=”https://www.sparkfun.com/products/13714”&gt;SparkFun PSOC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sparkfun.com/products/13879"&gt;SparkFun Load Cell Amplifier&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;</description>
+<gates>
+<gate name="G$1" symbol="TEST-POINT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="2" package="PAD.02X.02">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="3" package="PAD.03X.03">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="3X5" package="PAD.03X.05">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="3X4" package="PAD.03X.04">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="TP_15TH_THRU" package="TP_15TH">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="POGO_PTH" package="1X01_NO_SILK">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -10543,7 +10682,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="GND137" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="SUPPLY63" library="SparkFun-PowerSymbols" deviceset="V_USB" device=""/>
 <part name="R7" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0402T-1/16W-1%" value="2.2k"/>
-<part name="U3" library="SparkFun-IC-Memory" deviceset="W25QXX" device="128MBIT-6X5"/>
+<part name="U3" library="SparkFun-IC-Memory" deviceset="W25QXX" device="128MBIT-6X5-SKINNY_CENTER" value="W25QXX128MBIT-6X5-SKINNY_CENTER"/>
 <part name="L1" library="SparkFun-Resistors" deviceset="0OHM" device="-0402T-1/10W" value="0"/>
 <part name="GND138" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="A1" library="SparkFun-RF" deviceset="ANTENNA" device="2.4GHZ-8.0X1.0MM" value="ANTENNA2.4GHZ-8.0X1.0MM"/>
@@ -10574,6 +10713,12 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="SUPPLY2" library="SparkFun-PowerSymbols" deviceset="V_USB" device=""/>
 <part name="R1" library="SparkFun-Resistors" deviceset="100KOHM" device="-0402T-1/16W-1%" value="100k"/>
 <part name="U4" library="SparkFun-IC-Comms" deviceset="CP2102N" device=""/>
+<part name="TXT" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
+<part name="RXT" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
+<part name="!BOOT!" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
+<part name="!RESET!" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
+<part name="USB_3V3" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
+<part name="FLASH_VDD" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X4" value="TEST-POINT3X4"/>
 </parts>
 <sheets>
 <sheet>
@@ -10583,7 +10728,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <text x="109.982" y="28.448" size="1.778" layer="97" font="vector" align="top-left">RF Track Impedance: Coplanar Waveguide with Ground Calculations
 https://chemandy.com/calculators/coplanar-waveguide-with-ground-calculator.htm
 ----------------
-JLCPCB JLC7628 4-Layer 0.8mm Impedance Control Stackup (Er = 4.6)
+JLCPCB JLC7628 4-Layer 1.6mm Impedance Control Stackup (Er = 4.6)
 ----------------
 Ground is on layer 2.
 Prepreg thickness: 0.2mm
@@ -10919,7 +11064,7 @@ Iq: 55uA</text>
 </instance>
 <instance part="A1" gate="G$1" x="124.46" y="203.2" smashed="yes">
 <attribute name="NAME" x="124.968" y="203.2" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="124.968" y="200.66" size="1.778" layer="96" font="vector"/>
+<attribute name="VALUE" x="105.918" y="210.82" size="1.778" layer="96" font="vector"/>
 </instance>
 <instance part="C6" gate="G$1" x="124.46" y="187.96" smashed="yes" rot="MR0">
 <attribute name="NAME" x="122.936" y="190.881" size="1.778" layer="95" font="vector" rot="MR0"/>
@@ -11012,6 +11157,24 @@ Iq: 55uA</text>
 <instance part="U4" gate="G$1" x="396.24" y="236.22" smashed="yes">
 <attribute name="NAME" x="378.46" y="259.334" size="1.778" layer="95"/>
 <attribute name="VALUE" x="378.46" y="210.82" size="1.778" layer="96"/>
+</instance>
+<instance part="TXT" gate="G$1" x="419.1" y="226.06" smashed="yes">
+<attribute name="NAME" x="424.18" y="224.79" size="1.778" layer="95" font="vector"/>
+</instance>
+<instance part="RXT" gate="G$1" x="419.1" y="223.52" smashed="yes">
+<attribute name="NAME" x="424.18" y="222.25" size="1.778" layer="95" font="vector"/>
+</instance>
+<instance part="!BOOT!" gate="G$1" x="375.92" y="114.3" smashed="yes">
+<attribute name="NAME" x="381" y="113.03" size="1.778" layer="95" font="vector"/>
+</instance>
+<instance part="!RESET!" gate="G$1" x="375.92" y="147.32" smashed="yes">
+<attribute name="NAME" x="381" y="146.05" size="1.778" layer="95" font="vector"/>
+</instance>
+<instance part="USB_3V3" gate="G$1" x="360.68" y="260.35" smashed="yes" rot="R90">
+<attribute name="NAME" x="363.22" y="261.62" size="1.778" layer="95" font="vector"/>
+</instance>
+<instance part="FLASH_VDD" gate="G$1" x="35.56" y="114.3" smashed="yes" rot="R90">
+<attribute name="NAME" x="30.48" y="119.38" size="1.778" layer="95" font="vector"/>
 </instance>
 </instances>
 <busses>
@@ -11545,6 +11708,9 @@ Iq: 55uA</text>
 <wire x1="373.38" y1="147.32" x2="370.84" y2="147.32" width="0.1524" layer="91"/>
 <label x="370.84" y="147.32" size="1.27" layer="95" font="vector" rot="R180" xref="yes"/>
 <pinref part="Q1" gate="Q1" pin="C"/>
+<pinref part="!RESET!" gate="G$1" pin="1"/>
+<wire x1="375.92" y1="147.32" x2="373.38" y2="147.32" width="0.1524" layer="91"/>
+<junction x="373.38" y="147.32"/>
 </segment>
 </net>
 <net name="32-RTC" class="0">
@@ -11577,16 +11743,6 @@ Iq: 55uA</text>
 <wire x1="55.88" y1="170.18" x2="58.42" y2="170.18" width="0.1524" layer="91"/>
 <junction x="55.88" y="170.18"/>
 <label x="58.42" y="170.18" size="1.27" layer="95" font="vector" xref="yes"/>
-</segment>
-</net>
-<net name="39-BATT/3" class="0">
-<segment>
-<pinref part="U2" gate="G$1" pin="SENSOR_VN(GPI39/ADC1:3/RTC3)"/>
-<pinref part="C11" gate="G$1" pin="2"/>
-<wire x1="149.86" y1="152.4" x2="149.86" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="149.86" y1="149.86" x2="152.4" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="149.86" x2="152.4" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="152.4" x2="170.18" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="1" class="0">
@@ -11892,6 +12048,9 @@ Iq: 55uA</text>
 <label x="370.84" y="114.3" size="1.27" layer="95" font="vector" rot="R180" xref="yes"/>
 <pinref part="Q1" gate="Q2" pin="C"/>
 <wire x1="373.38" y1="114.3" x2="373.38" y2="116.84" width="0.1524" layer="91"/>
+<pinref part="!BOOT!" gate="G$1" pin="1"/>
+<wire x1="375.92" y1="114.3" x2="373.38" y2="114.3" width="0.1524" layer="91"/>
+<junction x="373.38" y="114.3"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -11919,6 +12078,8 @@ Iq: 55uA</text>
 <wire x1="35.56" y1="111.76" x2="33.02" y2="111.76" width="0.1524" layer="91"/>
 <junction x="35.56" y="111.76"/>
 <label x="33.02" y="111.76" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="FLASH_VDD" gate="G$1" pin="1"/>
+<wire x1="35.56" y1="114.3" x2="35.56" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="VDD3P3_SDIO"/>
@@ -11952,6 +12113,32 @@ Iq: 55uA</text>
 <wire x1="375.92" y1="254" x2="373.38" y2="254" width="0.1524" layer="91"/>
 <wire x1="373.38" y1="254" x2="373.38" y2="256.54" width="0.1524" layer="91"/>
 <junction x="373.38" y="256.54"/>
+<pinref part="USB_3V3" gate="G$1" pin="1"/>
+<wire x1="360.68" y1="260.35" x2="360.68" y2="256.54" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="SENSOR_VN(GPI39/ADC1:3/RTC3)"/>
+<wire x1="170.18" y1="152.4" x2="152.4" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="152.4" x2="152.4" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="152.4" y1="149.86" x2="149.86" y2="149.86" width="0.1524" layer="91"/>
+<pinref part="C11" gate="G$1" pin="2"/>
+<wire x1="149.86" y1="149.86" x2="149.86" y2="152.4" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="TXT" class="0">
+<segment>
+<pinref part="U4" gate="G$1" pin="GPIO0/TXT"/>
+<pinref part="TXT" gate="G$1" pin="1"/>
+<wire x1="416.56" y1="226.06" x2="419.1" y2="226.06" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="RXT" class="0">
+<segment>
+<pinref part="U4" gate="G$1" pin="GPIO1/RXT"/>
+<pinref part="RXT" gate="G$1" pin="1"/>
+<wire x1="416.56" y1="223.52" x2="419.1" y2="223.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
