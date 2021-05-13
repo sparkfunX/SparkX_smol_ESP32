@@ -1,0 +1,13 @@
+JLCPCB JLC7628 4-Layer 1.2mm Impedance Control
+panel size, 181x96mm
+PCB thickness, 1.2mm
+number of layers, 4
+soldermask color, Black
+silkscreen color, White
+oz copper, 1oz
+finish, ENIG
+stencils, top+bottom
+pcs per panel, 20
+min trace width, 0.1270mm / 0.0050in
+min drill size, 0.2000mm / 0.0079in
+filename to layer stackup 1/2/3/4: GTL, GL2, GL3, GBL
