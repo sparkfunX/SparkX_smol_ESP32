@@ -1,10 +1,17 @@
-# SparkX EZ ESP32
+# SparkX smôl ESP32
 
-The ESP32 in smôl format.
-
-[![SparkX smôl ESP32 (SPX-18362)]()](https://www.sparkfun.com/products/18632)
+[![SparkX smôl ESP32 (SPX-18362)]()](https://www.sparkfun.com/products/18362)
 
 [*SparkX smôl ESP32 (SPX-18362)*](https://www.sparkfun.com/products/18362)
+
+The ESP32 in smôl format:
+- ESP32 Processor
+- WiFi antenna
+- RTC crystal
+- WS2812 RGB LED
+- WS25Q128 128Mb Flash memory
+- USB-C connector
+- CP2102N USB-UART interface with RESET and BOOT control
 
 ![Top.png](./img/Top.png)
 ![Bottom.png](./img/Bottom.png)
@@ -19,7 +26,7 @@ The ESP32 in smôl format.
 
 ## Product Versions
 
-- [SPX-17729](https://www.sparkfun.com/products/18362) - Original SparkX Release.
+- [SPX-18362](https://www.sparkfun.com/products/18362) - Original SparkX Release.
 
 ## License Information
 
