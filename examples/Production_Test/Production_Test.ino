@@ -10,9 +10,9 @@
 // https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers
 //
 // This is the code we use to test the board during production:
-//   The LED will cycle through Red-Green-Blue, changing every second
 //   The SPIFFS flash memory is tested - the memory is formatted and a file is created
 //   The WiFi is checked - the board will report how many networks are available
+//   The LED will cycle through Red-Green-Blue, changing every second
 //   The GPIO pins used by smôl are read periodically
 //   Serial messages are generated and are read by the production test jig
 //   The jig will toggle the GPIO pins and look for the correct response in the serial messages
@@ -60,6 +60,10 @@ const uint8_t thePins[numPins] = {18, 23, 19, 5, 14, 13, 27, 26, 21, 22 };
 //WiFi
 #include <WiFi.h>
 
+//Globals
+byte numNetworks = 0;
+bool spiffsResult = false;
+
 //Ticker for LED updates
 #include <Ticker.h>
 Ticker toggler;
@@ -79,26 +83,35 @@ void setup() {
   //Set up the LED
   FastLED.addLeds<CHIPSET, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection( TypicalLEDStrip );
   FastLED.setBrightness( BRIGHTNESS );
-  toggler.attach(1.0, toggle); // Toggle the LED every second
+  leds[0] = CRGB::Cyan;
+  FastLED.show();
 
   //Set all the GPIO pins to INPUT
   for (uint8_t i = 0; i < numPins; i++)
     pinMode(thePins[i], INPUT);
 
   //Test SPIFFS
-  bool spiffsResult = spiffsTest();
-  Serial.print(F("SPIFFS:"));
-  if (spiffsResult) Serial.println(F("PASS"));
-  else  Serial.println(F("FAIL"));
+  spiffsResult = spiffsTest();
+
+  leds[0] = CRGB::Magenta;
+  FastLED.show();
 
   //Test WiFi - report how many WiFi networks can be seen
-  byte numNetworks = WiFi.scanNetworks();
-  Serial.print(F("WIFI:"));
-  Serial.println(numNetworks);
+  numNetworks = WiFi.scanNetworks();
+
+  //Toggle the LED color now that SPIFFS and WiFi tests are complete
+  toggler.attach(1.0, toggle); // Toggle the LED every second
 }
 
 void loop()
 {
+  Serial.print(F("SPIFFS:"));
+  if (spiffsResult) Serial.println(F("PASS"));
+  else  Serial.println(F("FAIL"));
+
+  Serial.print(F("WIFI:"));
+  Serial.println(numNetworks);
+
   //Read the GPIO pins
   Serial.print(F("GPIO:"));
   for (uint8_t i = 0; i < numPins; i++)
