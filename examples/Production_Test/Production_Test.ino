@@ -1,7 +1,7 @@
 // smôl ESP32 Production Test
 //
 // Written by Paul Clark (PaulZC)
-// September 27th, 2021
+// October 11th, 2021
 //
 // Select SparkFun ESP32 Thing as the board
 //
@@ -10,15 +10,12 @@
 // https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers
 //
 // This is the code we use to test the board during production:
-//   The SPIFFS flash memory is tested - the memory is formatted and a file is created
 //   The WiFi is checked - the board will report how many networks are available
 //   The LED will cycle through Red-Green-Blue, changing every second
 //   The GPIO pins used by smôl are read periodically
 //   Serial messages are generated and are read by the production test jig
 //   The jig will toggle the GPIO pins and look for the correct response in the serial messages
 //   The serial messages are sent at 115200 baud:
-//     "SPIFFS:PASS" indicates the flash memory test was successful
-//     "SPIFFS:FAIL" indicates the flash memory test failed
 //     "WIFI:n" indicates how many WiFi networks have been found
 //     "GPIO:nnnnnnnnnn" indicates the state of the GPIO pins
 //       n will be "0" or "1" showing whether the pin is LOW or HIGH
@@ -49,20 +46,11 @@ volatile uint8_t rgbStep = 0;
 const uint8_t numPins = 10;
 const uint8_t thePins[numPins] = {18, 23, 19, 5, 14, 13, 27, 26, 21, 22 };
 
-// SPIFFS
-#include "FS.h"
-#include "SPIFFS.h"
-/* You only need to format SPIFFS the first time you run a
-   test or else use the SPIFFS plugin to create a partition
-   https://github.com/me-no-dev/arduino-esp32fs-plugin */
-#define FORMAT_SPIFFS_IF_FAILED true
-
 //WiFi
 #include <WiFi.h>
 
 //Globals
 byte numNetworks = 0;
-bool spiffsResult = false;
 
 //Ticker for LED updates
 #include <Ticker.h>
@@ -83,18 +71,12 @@ void setup() {
   //Set up the LED
   FastLED.addLeds<CHIPSET, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection( TypicalLEDStrip );
   FastLED.setBrightness( BRIGHTNESS );
-  leds[0] = CRGB::Cyan;
+  leds[0] = CRGB::White;
   FastLED.show();
 
   //Set all the GPIO pins to INPUT
   for (uint8_t i = 0; i < numPins; i++)
     pinMode(thePins[i], INPUT);
-
-  //Test SPIFFS
-  spiffsResult = spiffsTest();
-
-  leds[0] = CRGB::Magenta;
-  FastLED.show();
 
   //Test WiFi - report how many WiFi networks can be seen
   numNetworks = WiFi.scanNetworks();
@@ -105,10 +87,6 @@ void setup() {
 
 void loop()
 {
-  Serial.print(F("SPIFFS:"));
-  if (spiffsResult) Serial.println(F("PASS"));
-  else  Serial.println(F("FAIL"));
-
   Serial.print(F("WIFI:"));
   Serial.println(numNetworks);
 
@@ -123,25 +101,5 @@ void loop()
   }
   Serial.println();
 
-  delay(100);
-}
-
-bool spiffsTest()
-{
-  if(!SPIFFS.begin(FORMAT_SPIFFS_IF_FAILED))
-    return (false);
-  
-  return(writeFile(SPIFFS, "/hello.txt", "Hello"));
-}
-
-bool writeFile(fs::FS &fs, const char * path, const char * message)
-{
-  bool result = false;
-  File file = fs.open(path, FILE_WRITE);
-  if(!file)
-    return (result);
-    
-  result = file.print(message);
-  file.close();
-  return(result);
+  delay(50);
 }
