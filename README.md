@@ -1,8 +1,8 @@
 # SparkX smôl ESP32
 
-[![SparkX smôl ESP32 (SPX-18362)]()](https://www.sparkfun.com/products/18362)
+[![SparkX smôl ESP32 (SPX-18619)](https://cdn.sparkfun.com/assets/parts/1/8/1/1/6/18619-smo__l_ESP32-01.jpg)](https://www.sparkfun.com/products/18619)
 
-[*SparkX smôl ESP32 (SPX-18362)*](https://www.sparkfun.com/products/18362)
+[*SparkX smôl ESP32 (SPX-18619)*](https://www.sparkfun.com/products/18619)
 
 The ESP32 in smôl format:
 - ESP32 Processor
@@ -13,8 +13,6 @@ The ESP32 in smôl format:
 - USB-C connector
 - CP2102N USB-UART interface with RESET and BOOT control
 
-![Top.png](./img/Top.png)
-![Bottom.png](./img/Bottom.png)
 ![Dimensions.png](./img/Dimensions.png)
 
 ## Repository Contents
@@ -26,7 +24,7 @@ The ESP32 in smôl format:
 
 ## Product Versions
 
-- [SPX-18362](https://www.sparkfun.com/products/18362) - Original SparkX Release.
+- [SPX-18619](https://www.sparkfun.com/products/18619) - Original SparkX Release.
 
 ## License Information
 
